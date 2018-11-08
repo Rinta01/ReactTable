@@ -1,0 +1,24 @@
+.pageBox{
+    float: right;
+    font-family: 'Roboto', sans-serif;
+    font-size: 17px;
+    margin: 10px 4.5% 15px 0;
+    align-self: flex-end;
+}
+
+.pageBtn{
+    height: 30px;
+    background-color: rgb(243, 243, 243);
+    border: none;
+    border-radius: 1px;
+    outline: none;
+    font-size: 13px;
+    margin: 0 5px;
+}
+.pageBtn:active{
+    font-size: 14px;
+}
+
+.activePage{
+    background-color: rgb(185, 185, 185);
+}

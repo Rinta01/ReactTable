@@ -1,0 +1,31 @@
+.srchBox{
+    float: right;
+    font-family: 'Roboto', sans-serif;
+    font-size: 17px;
+    margin: 10px 4.5% 15px 0;
+    align-self: flex-end;
+}
+
+.srchInput{
+    width: 250px;
+    height: 30px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid rgba(223, 223, 223, 0.897);
+    outline: none;
+}
+.srchInput:focus{
+    border-bottom: 3px solid rgba(223, 223, 223, 0.897);    
+}
+
+.srchBtn{
+    height: 30px;
+    background-color: rgb(243, 243, 243);
+    border: none;
+    border-radius: 1px;
+    outline: none;
+}
+.srchBtn:active{
+    font-size: 14px;
+}

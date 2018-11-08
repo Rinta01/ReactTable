@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,400i,500');
+
+.container{
+    display: flex;
+    margin: 0 auto;
+    width: 90vw;
+    max-height: 90vh;
+}
+
+table{
+    align-self: center;
+    width: 100%;
+    font-family: 'Roboto', sans-serif;
+    height: 100%;
+    border-collapse: collapse
+}
+table *{
+    border-radius: 2px;
+}
+
+table thead th{
+    height: 40px;
+    text-align: left;
+    padding-left: 15px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.headerIcon{
+    font-size: 12px;
+    float: right;
+    opacity: .3;
+    padding-top: 4px;
+}
+
+table tbody{
+    font-size: 16px;
+}
+
+table tbody tr{
+    height: 50px;
+    font-weight: 400;
+}
+
+table tbody tr td{
+    padding-left: 10px;
+}
+
+table tbody tr:nth-of-type(2n+1){
+    background-color: rgba(249, 249, 249, 0.904);
+    border-top: 2px solid rgb(216, 213, 213);
+    border-bottom: 2px solid rgb(216, 213, 213);
+    padding-left: 15px;
+}
