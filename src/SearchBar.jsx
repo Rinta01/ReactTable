@@ -14,11 +14,19 @@ class SearchBar extends Component {
             input: e.target.value
         })
     }
+
+    handleEnterInput = (e) => {
+        if(e.which === 13)
+        {
+            this.props.handleSearch(this.state.input);
+        }
+    } 
+    
     render() {
         return (
             <div className="srchBox">
                 <input type="search" name="table-search" id="q" className="srchInput" placeholder="Filter data"
-                onChange={this.handleChangeInput}/>
+                onChange={this.handleChangeInput} onKeyPress={this.handleEnterInput}/>
                 <button type="button" className="srchBtn" onClick={()=>{this.props.handleSearch(this.state.input)}} >Search</button>
             </div>
         );

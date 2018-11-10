@@ -15,9 +15,9 @@ export default class Table extends Component {
             if(sort['column']===col.toLowerCase())
             {
                 if(sort['direction'] === 'asc')
-                return sortIconUp
-                else if(sort['direction'] === 'desc')
                 return sortIconDown
+                else if(sort['direction'] === 'desc')
+                return sortIconUp
             }
             else
             return sortIcon
