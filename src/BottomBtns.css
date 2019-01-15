@@ -1,4 +1,4 @@
-.pageBox{
+.bottomBtnBox {
     float: right;
     font-family: 'Roboto', sans-serif;
     font-size: 17px;
@@ -6,7 +6,12 @@
     align-self: flex-end;
 }
 
-.pageBtn{
+.left {
+    margin: 10px 0 15px 4.5%;
+    /* align-self: flex-start; */
+}
+
+.bottomBtn {
     cursor: pointer;
     height: 30px;
     background-color: rgb(243, 243, 243);
@@ -16,10 +21,11 @@
     font-size: 13px;
     margin: 0 5px;
 }
-.pageBtn:active{
+
+.bottomBtn:active {
     font-size: 14px;
 }
 
-.activePage{
+.activeBtn {
     background-color: rgb(185, 185, 185);
 }
