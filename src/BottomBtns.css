@@ -1,31 +1,33 @@
 .bottomBtnBox {
     float: right;
     font-family: 'Roboto', sans-serif;
-    font-size: 17px;
+    font-size: 10px;
     margin: 10px 4.5% 15px 0;
     align-self: flex-end;
 }
 
 .left {
     margin: 10px 0 15px 4.5%;
-    /* align-self: flex-start; */
 }
 
 .bottomBtn {
     cursor: pointer;
-    height: 30px;
+    min-height: 24px;
+    max-height: 30px;
     background-color: rgb(243, 243, 243);
     border: none;
     border-radius: 1px;
     outline: none;
     font-size: 13px;
-    margin: 0 5px;
+    margin: 0 5px 5px 0;
+    border-radius: 2px;
 }
 
 .bottomBtn:active {
-    font-size: 14px;
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 .activeBtn {
-    background-color: rgb(185, 185, 185);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
 }

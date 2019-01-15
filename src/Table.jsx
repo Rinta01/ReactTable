@@ -49,7 +49,7 @@ export default class Table extends Component {
           </thead>
           <tbody>
             {this.props.data.map(d => {
-              return <TableRow key={`${d.id}${Math.floor(Math.random()*100)}`} data={d} />;
+              return <TableRow key={`${d.id}${Math.floor(Math.random()*10000)}`} data={d} />;
             })}
           </tbody>
         </table>

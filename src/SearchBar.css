@@ -1,32 +1,39 @@
 .srchBox{
     float: right;
     font-family: 'Roboto', sans-serif;
-    font-size: 17px;
+    font-size: 14px;
     margin: 10px 4.5% 15px 0;
     align-self: flex-end;
 }
 
 .srchInput{
-    width: 250px;
-    height: 30px;
+    max-width: 90px;
+    height: 25px;
     border-top: none;
     border-left: none;
     border-right: none;
     border-bottom: 1px solid rgba(223, 223, 223, 0.897);
     outline: none;
+    border-radius: 10px;
+    padding-left: 10px;
+    transition: all ease-out .2s;
 }
 .srchInput:focus{
-    border-bottom: 3px solid rgba(223, 223, 223, 0.897);    
+    max-width: 240px;
+    border-bottom: 3px solid rgba(223, 223, 223, 0.897);
 }
 
 .srchBtn{
     cursor: pointer;
-    height: 30px;
+    height: 25px;
     background-color: rgb(243, 243, 243);
+    /* background-color: #4CD2FF; */
+    margin-left: 5px;
     border: none;
-    border-radius: 1px;
+    border-radius: 5px;
     outline: none;
 }
 .srchBtn:active{
-    font-size: 14px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
 }

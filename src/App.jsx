@@ -34,7 +34,7 @@ class App extends Component {
       filter: "",
       loading: true
     };
-    this.itemsOnPage = 13;
+    this.itemsOnPage = 15;
     this.initData = [];
     this.handleSearch = this.handleSearch.bind(this);
     this.handleSort = this.handleSort.bind(this);
@@ -64,12 +64,10 @@ class App extends Component {
         {this.state.loading ? (
           <div className="loader">
             <Loader
-              type="Oval"
-              color="#4CD2FF"
+              type="ThreeDots"
+              color="rgb(186, 91, 141)"
               height="100"
               width="100"
-              top="50%"
-              left="50%"
             />
           </div>
         ) : null}
@@ -222,11 +220,13 @@ class App extends Component {
         );
       console.log(dataFiltered);
       this.setState({
-        data: dataFiltered
+        data: dataFiltered,
+        page: 1
       });
     } else {
       this.setState({
-        data: this.initData
+        data: this.initData,
+        page: 1
       });
     }
   }
@@ -255,9 +255,9 @@ class App extends Component {
 
   getDataByPage(data = this.state.data) {
     let dataOnPage = this.state.page * this.itemsOnPage;
-    console.log(data);
+    // console.log(data);
     let newData = data.slice(dataOnPage - this.itemsOnPage, dataOnPage);
-    console.log(newData);
+    // console.log(newData);
     return newData;
   }
 
