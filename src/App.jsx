@@ -225,10 +225,12 @@ class App extends Component {
   }
 
   handlePageChange(pageNum) {
-    this.setState({
-      page: pageNum
-    });
-    console.log(this.state.page);
+    let numPages = Math.ceil(this.state.data.length / this.itemsOnPage);
+    if (pageNum >= 1 && pageNum <= numPages) {
+      this.setState({
+        page: pageNum
+      });
+    }
   }
 
   getDataByPage(data = this.state.data) {

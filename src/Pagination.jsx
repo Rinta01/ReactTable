@@ -27,7 +27,23 @@ class Pagination extends Component {
   }
 
   render() {
-    return <div className="bottomBtnBox">{this.handlePageButtons()}</div>;
+    return (
+      <div className="bottomBtnBox">
+        <button
+          className="bottomBtn"
+          onClick={() => this.props.handlePageChange(this.props.page-1)}
+        >
+          Prev
+        </button>
+        {this.handlePageButtons()}
+        <button
+          className="bottomBtn"
+          onClick={() => this.props.handlePageChange(this.props.page+1)}
+        >
+          Next
+        </button>
+      </div>
+    );
   }
 }
 
