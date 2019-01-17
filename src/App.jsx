@@ -93,121 +93,100 @@ class App extends Component {
       column = column.replace(" ", "");
     }
 
-    const stringSortAsc = () =>
-      data.sort((a, b) =>
-        a[column].toLowerCase() > b[column].toLowerCase() ? 1 : -1
-      );
-
-    const stringSortDesc = () =>
-      data.sort((a, b) =>
-        a[column].toLowerCase() < b[column].toLowerCase() ? 1 : -1
-      );
-
-    const intSortAsc = () => {
-      return data.sort((a, b) => a[column] - b[column]);
-    };
-
-    const intSortDesc = () => {
-      return data.sort((a, b) => (a[column] - b[column]) * -1);
-    };
-
-    const dateSortAsc = () => {
-      const columnDate = "start_date";
-      return data.sort((a, b) => {
-        var dateA = new Date(a[columnDate]),
-          dateB = new Date(b[columnDate]);
-        return dateA - dateB;
-      });
-    };
-
-    const dateSortDesc = () => {
-      const columnDate = "start_date";
-      return data.sort((a, b) => {
-        var dateA = new Date(a[columnDate]),
-          dateB = new Date(b[columnDate]);
-        return (dateA - dateB) * -1;
-      });
-    };
-
-    const salarySortAsc = () => {
-      return data.sort((a, b) => {
-        a = Number(a[column].substr(1));
-        b = Number(b[column].substr(1));
-        return a - b;
-      });
-    };
-
-    const salarySortDesc = () => {
-      return data.sort((a, b) => {
-        a = Number(a[column].substr(1));
-        b = Number(b[column].substr(1));
-        return (a - b) * -1;
-      });
-    };
-
-    if (direction === "asc") {
-      switch (column) {
-        case "name":
-          return stringSortAsc();
-        case "position":
-          return stringSortAsc();
-        case "office":
-          return stringSortAsc();
-        case "age":
-          return intSortAsc();
-        case "start date":
-          return dateSortAsc();
-        case "salary":
-          return salarySortAsc();
-
-        case "id":
-          return intSortAsc();
-        case "firstname":
-          return stringSortAsc();
-        case "lastname":
-          return stringSortAsc();
-        case "email":
-          return stringSortAsc();
-        case "phone":
-          return intSortAsc();
-
+    const stringSort = () => {
+      switch (direction) {
+        case "asc":
+          return data.sort((a, b) =>
+            a[column].toLowerCase() > b[column].toLowerCase() ? 1 : -1
+          );
+        case "desc":
+          return data.sort((a, b) =>
+            a[column].toLowerCase() < b[column].toLowerCase() ? 1 : -1
+          );
         default:
           return data;
       }
-    } else {
-      switch (column) {
-        case "name":
-          return stringSortDesc();
-        case "position":
-          return stringSortDesc();
-        case "office":
-          return stringSortDesc();
-        case "age":
-          return intSortDesc();
-        case "start date":
-          return dateSortDesc();
-        case "salary":
-          return salarySortDesc();
+    };
 
-        case "id":
-          return intSortDesc();
-        case "firstname":
-          return stringSortDesc();
-        case "lastname":
-          return stringSortDesc();
-        case "email":
-          return stringSortDesc();
-        case "phone":
-          return intSortDesc();
-
+    const intSort = () => {
+      switch (direction) {
+        case "asc":
+          return data.sort((a, b) => a[column] - b[column]);
+        case "desc":
+          return data.sort((a, b) => (a[column] - b[column]) * -1);
         default:
           return data;
       }
+    };
+
+    const dateSort = () => {
+      const columnDate = "start_date";
+      switch (direction) {
+        case "asc":
+          return data.sort((a, b) => {
+            var dateA = new Date(a[columnDate]),
+              dateB = new Date(b[columnDate]);
+            return dateA - dateB;
+          });
+        case "desc":
+          return data.sort((a, b) => {
+            var dateA = new Date(a[columnDate]),
+              dateB = new Date(b[columnDate]);
+            return (dateA - dateB) * -1;
+          });
+        default:
+          return data;
+      }
+    };
+
+    const salarySort = () => {
+      switch (direction) {
+        case "asc":
+          return data.sort((a, b) => {
+            a = Number(a[column].substr(1));
+            b = Number(b[column].substr(1));
+            return a - b;
+          });
+        case "desc":
+          return data.sort((a, b) => {
+            a = Number(a[column].substr(1));
+            b = Number(b[column].substr(1));
+            return (a - b) * -1;
+          });
+        default:
+          return data;
+      }
+    };
+
+    switch (column) {
+      case "name":
+        return stringSort();
+      case "position":
+        return stringSort();
+      case "office":
+        return stringSort();
+      case "age":
+        return intSort();
+      case "start date":
+        return dateSort();
+      case "salary":
+        return salarySort();
+      case "id":
+        return intSort();
+      case "firstname":
+        return stringSort();
+      case "lastname":
+        return stringSort();
+      case "email":
+        return stringSort();
+      case "phone":
+        return intSort();
+      default:
+        return data;
     }
   }
 
   handleSearch(str) {
-    // console.log(str);
     if (str !== "") {
       console.log(this.initData);
       let dataFiltered = this.initData

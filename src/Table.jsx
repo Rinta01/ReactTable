@@ -57,6 +57,23 @@ export default class Table extends Component {
   }
 
   static propTypes = {
-    data: PropTypes.array.isRequired
+    data: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.number,
+        firstname: PropTypes.string,
+        lastname: PropTypes.string,
+        email: PropTypes.string,
+        phone: PropTypes.string,
+        address: PropTypes.shape({
+          streetAddress: PropTypes.string,
+          city: PropTypes.string,
+          state: PropTypes.string,
+          zip: PropTypes.string
+        }),
+        description: PropTypes.string
+      })
+    ).isRequired,
+    handleSort: PropTypes.func.isRequired,
+    sort: PropTypes.object.isRequired
   };
 }

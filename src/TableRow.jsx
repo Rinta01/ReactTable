@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Popup from "reactjs-popup";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./Table.css";
+import PropTypes from "prop-types";
 
 class TableRow extends Component {
   render() {
@@ -33,14 +34,14 @@ class TableRow extends Component {
         {close => (
           <div className="modal">
             <span className="close" onClick={close}>
-              <FontAwesomeIcon icon="times"/>
+              <FontAwesomeIcon icon="times" />
             </span>
             <div className="header">
               {firstname} {lastname}{" "}
             </div>
             <div className="content">
               <b>Description</b>
-              <textarea defaultValue={description}></textarea>
+              <textarea defaultValue={description} />
               <b>Address</b>
               <span>{address.streetAddress}</span>
               <b>City</b>
@@ -56,5 +57,22 @@ class TableRow extends Component {
     );
   }
 }
+
+TableRow.propTypes = {
+  data: PropTypes.shape({
+    id: PropTypes.number,
+    firstname: PropTypes.string,
+    lastname: PropTypes.string,
+    email: PropTypes.string,
+    phone: PropTypes.string,
+    address: PropTypes.shape({
+      streetAddress: PropTypes.string,
+      city: PropTypes.string,
+      state: PropTypes.string,
+      zip: PropTypes.string 
+    }),
+    description: PropTypes.string
+  }).isRequired
+};
 
 export default TableRow;
