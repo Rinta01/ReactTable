@@ -8,13 +8,14 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import {
   faSort,
   faSortUp,
-  faSortDown
+  faSortDown,
+  faTimes
 } from "@fortawesome/free-solid-svg-icons";
 import Pagination from "./Pagination";
 import Loader from "react-loader-spinner";
 import DataBtns from "./DataBtns";
 
-library.add(faSort, faSortUp, faSortDown);
+library.add(faSort, faSortUp, faSortDown, faTimes);
 const invertSortDirection = {
   asc: "desc",
   desc: "asc"
@@ -145,7 +146,6 @@ class App extends Component {
     };
 
     if (direction === "asc") {
-      // console.log(column,direction,data)
       switch (column) {
         case "name":
           return stringSortAsc();
@@ -175,7 +175,6 @@ class App extends Component {
           return data;
       }
     } else {
-      // console.log(column,direction, data)
       switch (column) {
         case "name":
           return stringSortDesc();

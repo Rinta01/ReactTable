@@ -1,13 +1,14 @@
-.srchBox{
+.srchBox {
     float: right;
     font-family: 'Roboto', sans-serif;
     font-size: 14px;
     margin: 10px 4.5% 15px 0;
     align-self: flex-end;
+    max-width: 40%;
 }
 
-.srchInput{
-    max-width: 90px;
+.srchInput {
+    width: 90px;
     height: 25px;
     border-top: none;
     border-left: none;
@@ -18,22 +19,39 @@
     padding-left: 10px;
     transition: all ease-out .2s;
 }
-.srchInput:focus{
-    max-width: 240px;
-    border-bottom: 3px solid rgba(223, 223, 223, 0.897);
+
+.srchInput:focus {
+    width: 200px;
+    border-bottom: 2px solid rgba(223, 223, 223, 0.897);
 }
 
-.srchBtn{
-    cursor: pointer;
+.srchBtn {
     height: 25px;
-    background-color: rgb(243, 243, 243);
-    /* background-color: #4CD2FF; */
-    margin-left: 5px;
-    border: none;
-    border-radius: 5px;
+    /* background-color: rgb(243, 243, 243); */
+    margin-left: 6px;
     outline: none;
+
+    transition: background-color 0.2s;
+    background-color: transparent;
+    color: #8a8a8a;
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    border: 1px solid #8a8a8a;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    display: inline-block;
+    /* line-height: 25px; */
 }
-.srchBtn:active{
+
+.srchBtn:hover {
+    color: #fafafa;
+    background-color: #8a8a8a;
+}
+
+.srchBtn:active {
     background-color: rgba(0, 0, 0, 0.5);
     color: white;
 }

@@ -7,13 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 export default class Table extends Component {
   render() {
     // const headers = ['Name', 'Position', 'Office', 'Age', 'Start Date', 'Salary'];
-    const headers = [
-      "Id",
-      "First Name",
-      "Last Name",
-      "Email",
-      "Phone"
-    ];
+    const headers = ["Id", "First Name", "Last Name", "Email", "Phone"];
     const sortIcon = <FontAwesomeIcon icon="sort" className="headerIcon" />;
     const sortIconUp = (
       <FontAwesomeIcon icon="sort-up" className="headerIcon" />
@@ -49,7 +43,12 @@ export default class Table extends Component {
           </thead>
           <tbody>
             {this.props.data.map(d => {
-              return <TableRow key={`${d.id}${Math.floor(Math.random()*10000)}`} data={d} />;
+              return (
+                <TableRow
+                  key={`${d.id}${Math.floor(Math.random() * 10000)}`}
+                  data={d}
+                />
+              );
             })}
           </tbody>
         </table>
