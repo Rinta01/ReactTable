@@ -1,0 +1,7 @@
+{
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "scssFormatter.singleQuote": true,
+    "scssFormatter.tabWidth": 4,
+    "scssFormatter.useTabs": true,
+    "css.lint.duplicateProperties": "warning",
+}

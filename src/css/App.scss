@@ -1,0 +1,27 @@
+@import 'variables.scss';
+
+body {
+	background-color: color(background);
+	.container {
+		display: flex;
+		flex-direction: column;
+		flex-wrap: wrap;
+		overflow: hidden;
+		font-family: $font;
+	}
+	.loader {
+		background-color: color(background);
+		position: fixed;
+		top: 50%;
+		left: 50%;
+		margin-top: -65px;
+		margin-left: -60px;
+		padding: 30px;
+		border-radius: 25%;
+	}
+	.btn-box {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+	}
+}
