@@ -1,21 +1,21 @@
-@import "variables.scss";
+@import 'variables.scss';
 
 .bottom-btn-box {
-  float: right;
-  font-size: 10px;
-  margin: $margin-right;
-  align-self: flex-end;
+	float: right;
+	font-size: 10px;
+	margin: $margin-right;
+	align-self: flex-end;
 
-  .bottom-btn {
-    margin: 0 5px 5px 0;
-    @include button;
-  }
-  .active-btn {
-    background-color: color(active-btn);
-    color: color(inverse-text);
-  }
+	.bottom-btn {
+		margin: 0 5px 5px 0;
+		@include button;
+	}
+	.active-btn {
+		background-color: color(active-btn);
+		color: color(inverse-text);
+	}
 }
 
 .left-box {
-  margin: $margin-left;
+	margin: $margin-left;
 }
