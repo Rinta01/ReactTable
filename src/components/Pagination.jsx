@@ -37,7 +37,8 @@ class Pagination extends Component {
                     </button>
                 ) : null}
                 {this.handlePageButtons()}
-                {this.props.numPages > 1 ? (
+                {this.props.numPages > 1 &&
+                this.props.page < this.props.numPages ? (
                     <button
                         className="bottom-btn"
                         onClick={() =>
