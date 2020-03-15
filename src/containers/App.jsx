@@ -11,7 +11,7 @@ import DataBtns from '../components/DataBtns';
 import Pagination from '../components/Pagination';
 import SearchBar from '../components/SearchBar';
 import Table from '../components/Table';
-// import { data } from "./data";
+import data from '../data/data';
 import { fetchBigData, fetchSmallData } from '../data/fetchData';
 import '../css/App.scss';
 
@@ -37,6 +37,7 @@ class App extends Component {
         };
         this.itemsOnPage = 15;
         this.initData = [];
+        this.numPages = 0;
         this.handleSearch = this.handleSearch.bind(this);
         this.handleSort = this.handleSort.bind(this);
         this.handlePageChange = this.handlePageChange.bind(this);
@@ -82,6 +83,7 @@ class App extends Component {
                         itemsOnPage={this.itemsOnPage}
                         data={this.state.data}
                         page={this.state.page}
+                        numPages={this.numPages}
                     />
                 </div>
             </div>
@@ -229,8 +231,7 @@ class App extends Component {
     }
 
     handlePageChange(pageNum) {
-        let numPages = Math.ceil(this.state.data.length / this.itemsOnPage);
-        if (pageNum >= 1 && pageNum <= numPages) {
+        if (pageNum >= 1 && pageNum <= this.numPages) {
             this.setState({
                 page: pageNum,
             });
@@ -239,33 +240,30 @@ class App extends Component {
 
     getDataByPage(data = this.state.data) {
         let dataOnPage = this.state.page * this.itemsOnPage;
-        // console.log(data);
         let newData = data.slice(dataOnPage - this.itemsOnPage, dataOnPage);
-        // console.log(newData);
         return newData;
     }
 
     async handleDataSize(size) {
         this.setState({ loading: true });
+        let fetchedData;
+        let dataSize;
         if (size === 'small') {
-            let fetchedData = await fetchSmallData();
-            this.initData = fetchedData.slice();
-            this.setState({
-                data: fetchedData,
-                dataSize: 'small',
-                page: 1,
-                loading: false,
-            });
+            fetchedData = (await fetchSmallData()) || data;
+            this.initData = fetchedData.slice(0, 4);
+            dataSize = 'small';
         } else if (size === 'big') {
-            let fetchedData = await fetchBigData();
+            fetchedData = (await fetchBigData()) || data;
             this.initData = fetchedData.slice();
-            this.setState({
-                data: fetchedData,
-                dataSize: 'big',
-                page: 1,
-                loading: false,
-            });
+            dataSize = 'big';
         }
+        this.numPages = Math.ceil(this.initData.length / this.itemsOnPage);
+        this.setState({
+            data: this.initData,
+            dataSize,
+            page: 1,
+            loading: false,
+        });
     }
 }
 
